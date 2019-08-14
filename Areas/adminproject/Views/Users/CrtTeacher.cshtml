@@ -1,0 +1,60 @@
+﻿@model Area.ViewModel.CreateT
+@{
+    ViewBag.Title = "CrtTeacher";
+}
+
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm(Model.Action, "Tables", FormMethod.Post))
+            {
+                <h2>Teacher Table</h2>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Name)
+                    @Html.TextBoxFor(t => t.Teacher.Name, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Surname)
+                    @Html.TextBoxFor(t => t.Teacher.Surname, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Email)
+                    @Html.TextBoxFor(t => t.Teacher.Email, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Phone)
+                    @Html.TextBoxFor(t => t.Teacher.Phone, new { @class = "form-control", type = "text" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Address)
+                    @Html.TextBoxFor(t => t.Teacher.Address, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Workday)
+                    @Html.TextBoxFor(t => t.Teacher.Workday, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Birthday)
+                    @Html.TextBoxFor(t => t.Teacher.Birthday, new { @class = "form-control", type = "text" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(t => t.Teacher.Salary)
+                    @Html.TextBoxFor(t => t.Teacher.Salary, new { @class = "form-control", type = "text" })
+                </div>
+
+
+                <div class="form-group">
+                    @if (Model.Positions != null)
+                    {
+                        @Html.LabelFor(t => t.Teacher.PositionId)
+                        @Html.DropDownListFor(t => t.Teacher.PositionId, new SelectList(Model.Positions, "id", "Name"), new { @class = "form-control" })
+                    }
+                </div>
+                @Html.HiddenFor(s => s.Teacher.Id)
+
+
+                <button type="submit" class="btn btn-success">Save</button>
+            }
+        </div>
+    </div>
+

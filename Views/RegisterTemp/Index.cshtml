@@ -1,0 +1,95 @@
+﻿@model Area.ViewModel.CreateVM
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+      
+        <div class="container">
+            @using (Html.BeginForm("RegisterTE", "RegisterTemp", FormMethod.Post))
+            {
+                <div class="card card-register mx-auto mt-5">
+                    <div class="card-header">Register an Account</div>
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <div class="form-row">
+
+                                <div class="form-label-group">
+                                    @Html.LabelFor(m => m.Student.Name)
+                                    @Html.TextBoxFor(m => m.Student.Name, new { @class = "form-control", type = "text" })
+                                </div>
+                            </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(m => m.Student.Surname)
+                                        @Html.TextBoxFor(m => m.Student.Surname, new { @class = "form-control", type = "text" })
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(m => m.Student.Email)
+                                        @Html.TextBoxFor(m => m.Student.Email, new { @class = "form-control", type = "text" })
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(m => m.Student.Phone)
+                                        @Html.TextBoxFor(m => m.Student.Phone, new { @class = "form-control", type = "text" })
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(s => s.Student.Group)
+                                        @Html.DropDownListFor(m => m.Student.GroupId, new SelectList(Model.Groups, "id", "Name"), new { @class = "form-control" })
+
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(m => m.Student.Address)
+                                        @Html.TextBoxFor(m => m.Student.Address, new { @class = "form-control", type = "text" })
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(m => m.Student.Time)
+                                        @Html.TextBoxFor(m => m.Student.Time, new { @class = "form-control", type = "text" })
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+
+                                    <div class="form-label-group">
+                                        @Html.LabelFor(m => m.Student.Birthday)
+                                        @Html.TextBoxFor(m => m.Student.Birthday, new { @class = "form-control", type = "text" })
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                </div>
+            <input type="submit" class="btn btn-success" value="Save">
+        }
+        </div>
+    </div>
+</div>
+
+
+

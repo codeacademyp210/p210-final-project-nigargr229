@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/Areas/adminproject/Public/style/style.css">
+    <link rel="stylesheet" href="~/Areas/adminproject/Public/style/media.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="head" style="background: rgb(17, 17, 17);height: 65px;">
+        <div class="roundhouse"><h1 class="round">/// Roundhouse</h1></div>
+        <menu style="height: 50px;">
+            <nav>
+                <ul>
+                    <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                    <li><a href="@Url.Action("Index","About")">About</a></li>
+                    <li><a href="@Url.Action("Index","Program")">Programs</a></li>
+                    <li><a href="@Url.Action("Index","Staff")">Staff</a></li>
+                    <li><a href="@Url.Action("Index","Contact")">Contact</a></li>
+                    <li><a href="@Url.Action("Index","RegisterTemp")">Register</a></li>
+
+
+                </ul>
+            </nav>
+        </menu>
+    </div>
+    @RenderBody()
+
+    <div class="address">
+        <h1>CONTACT US</h1>
+        <p>123-456-7890 | info@mysite.com <br> 500 Terry Francois Street,San Francisco, CA 94158</p>
+    </div>
+
+    <footer>
+        <h1 style="color:#FFC314;text-align: center;padding-top:70px;">STAY UPDATED</h1><br>
+
+        <div class="container">
+
+            <div class="c" style="color: white;">
+                <br>
+                <br>
+
+                Tel : 123-456-7890 Email : info@mysite.com <i class="fab fa-facebook-f" style="padding-left: 30px;"></i> <i class="fab fa-instagram" style="padding-left: 10px"></i>
+
+
+            </div>
+
+            <div class="by">
+                © 2023 by Roundhouse. Proudly created with KarateSchool
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

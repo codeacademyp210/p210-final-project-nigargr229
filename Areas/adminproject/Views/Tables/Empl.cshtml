@@ -1,0 +1,86 @@
+﻿@model List<Area.Models.Employee>
+@{
+    ViewBag.Title = "Empl";
+}
+
+<a href="@Url.Action("Create","Users")">CREATE Student</a>
+<a href="@Url.Action("CrtTeacher","Users")">CREATE Teacher</a>
+<a href="@Url.Action("CrtEmployee","Users")">CREATE Employee</a>
+<br /><br />
+
+<a href="@Url.Action("Index","Tables")">Student Table</a>
+<a href="@Url.Action("Teach","Tables")">Teacher Table</a>
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+               Employee Table
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Surname</td>
+                            <td>Email</td>
+                            <td>Phone</td>
+                            <td>Birthday</td>
+                            <td>Address</td>
+                            <td>Workday</td>
+                            <td>Salary</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var empl in Model)
+                        {
+                            <tr>
+                                <td>@empl.Name</td>
+                                <td>@empl.Surname</td>
+                                <td>@empl.Email</td>
+                                <td>@empl.Phone</td>
+                                <td>@empl.Birthday</td>
+                                <td>@empl.Address</td>
+                                <td>@empl.Workday</td>
+                                <td>@empl.Salary</td>
+                                <td>
+                                    <a href="@Url.Action("EditEmpl","Users",new { id=empl.Id})">Update</a>
+                                    <a onclick="return confirm('Are you sure delete?')" href="@Url.Action("DeleteEmployee","Tables", new { id=empl.Id})">Delete</a>
+                                </td>
+
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+

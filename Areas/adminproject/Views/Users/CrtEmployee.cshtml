@@ -1,0 +1,61 @@
+﻿@model Area.ViewModel.CreateE
+@{
+    ViewBag.Title = "CrtEmployee";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("CreateEmp", "Tables", FormMethod.Post))
+        {
+            <h2>Employee Table</h2>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Name)
+                @Html.TextBoxFor(e => e.Employee.Name, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Surname)
+                @Html.TextBoxFor(e => e.Employee.Surname, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Email)
+                @Html.TextBoxFor(e => e.Employee.Email, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Phone)
+                @Html.TextBoxFor(e => e.Employee.Phone, new { @class = "form-control", type = "text" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Address)
+                @Html.TextBoxFor(e => e.Employee.Address, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Workday)
+                @Html.TextBoxFor(e => e.Employee.Workday, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Birthday)
+                @Html.TextBoxFor(e => e.Employee.Birthday, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(e => e.Employee.Salary)
+                @Html.TextBoxFor(e => e.Employee.Salary, new { @class = "form-control", type = "text" })
+            </div>
+
+
+            <div class="form-group">
+                @if (Model.Positions != null)
+                {
+                    @Html.LabelFor(e => e.Employee.PositionId)
+                    @Html.DropDownListFor(e => e.Employee.PositionId, new SelectList(Model.Positions, "id", "Name"), new { @class = "form-control" })
+                }
+            </div>
+           
+
+            <button type="submit" class="btn btn-success">Save</button>
+        }
+    </div>
+</div>
+
+
+

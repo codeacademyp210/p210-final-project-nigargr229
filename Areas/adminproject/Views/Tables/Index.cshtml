@@ -1,0 +1,86 @@
+﻿@model List<Area.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/adminproject/Views/Shared/_Layout.cshtml";
+}
+<a href="@Url.Action("Create","Users")">CREATE Student</a>
+<a href="@Url.Action("CrtTeacher","Users")">CREATE Teacher</a>
+<a href="@Url.Action("CrtEmployee","Users")">CREATE Employee</a>
+<br />
+<br />
+
+
+<a href="@Url.Action("Teach","Tables")">Teacher Table</a>
+<a href="@Url.Action("Empl","Tables")">Employee Table</a>
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+                Student Table
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Surname</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Time</th>
+                            <th>Birthday</th>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Surname</td>
+                                <td>@item.Email</td>
+                                <td>@item.Phone</td>
+                                <td>@item.Address</td>
+                                <td>@item.Time</td>
+                                <td>@item.Birthday</td>
+                                <td>
+                                    <a  href="@Url.Action("Edit","Users",new { id=item.Id})">Update</a>
+                                    <a onclick="return confirm('Are you sure delete?')" href="@Url.Action("Delete","Tables", new { id=item.Id})">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>

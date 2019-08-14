@@ -1,0 +1,54 @@
+﻿@model Area.ViewModel.CreateVM
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm(Model.Action, "Tables", FormMethod.Post))
+        {
+            <h2>Student Table</h2>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Name)
+                @Html.TextBoxFor(s => s.Student.Name, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Surname)
+                @Html.TextBoxFor(s => s.Student.Surname, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Email)
+                @Html.TextBoxFor(s => s.Student.Email, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Phone)
+                @Html.TextBoxFor(s => s.Student.Phone, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @if (Model.Groups != null)
+                {
+                    @Html.LabelFor(s => s.Student.GroupId)
+                    @Html.DropDownListFor(m => m.Student.GroupId, new SelectList(Model.Groups, "id", "Name"), new { @class = "form-control" })
+                }
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Address)
+                @Html.TextBoxFor(s => s.Student.Address, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Time)
+                @Html.TextBoxFor(s => s.Student.Time, new { @class = "form-control", type = "text" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(s => s.Student.Birthday)
+                @Html.TextBoxFor(s => s.Student.Birthday, new { @class = "form-control", type = "text" })
+            </div>
+            @Html.HiddenFor(s=>s.Student.Id)
+
+            <button type="submit" class="btn btn-success">Save</button>
+        }
+    </div>
+</div>
+
+
+

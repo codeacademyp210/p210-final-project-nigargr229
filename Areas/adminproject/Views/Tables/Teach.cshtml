@@ -1,0 +1,89 @@
+﻿@model List<Area.Models.Teacher>
+
+@{
+    ViewBag.Title = "Teach";
+}
+
+<a href="@Url.Action("Create","Users")">CREATE Student</a>
+<a href="@Url.Action("CrtTeacher","Users")">CREATE Teacher</a>
+<a href="@Url.Action("CrtEmployee","Users")">CREATE Employee</a>
+<br />
+<br />
+
+<a href="@Url.Action("Index","Tables")">Student Table</a>
+<a href="@Url.Action("Empl","Tables")">Employee Table</a>
+
+<div id="content-wrapper">
+
+    <div class="container-fluid">
+
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Tables</li>
+        </ol>
+
+        <!-- DataTables Example -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fas fa-table"></i>
+               Teacher Table
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Surname</td>
+                            <td>Email</td>
+                            <td>Phone</td>
+                            <td>Address</td>
+                            <td>Time</td>
+                            <td>Salary</td>
+                            <td>Birthday</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var tch in Model)
+                        {
+                            <tr>
+                                <td>@tch.Name</td>
+                                <td>@tch.Surname</td>
+                                <td>@tch.Email</td>
+                                <td>@tch.Phone</td>
+                                <td>@tch.Address</td>
+                                <td>@tch.Workday</td>
+                                <td>@tch.Salary</td>
+                                <td>@tch.Birthday</td>
+                                <td>
+                                    <a href="@Url.Action("EditTeacher","Users",new { id=tch.Id})">Update</a>
+                                    <a onclick="return confirm('Are you sure delete?')" href="@Url.Action("DeleteTeacher","Tables", new { id=tch.Id})">Delete</a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+          
+        </div>
+
+
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © Your Website 2019</span>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
